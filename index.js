@@ -12,6 +12,7 @@ app.use(express.static('public'));
 
 //app routes 
 app.get('/', (req, res)=>{
+    console.log(userPost);
     res.render('index.ejs', {userPost:userPost});
 });
 
@@ -21,6 +22,16 @@ app.get('/contact', (req, res)=>{
 
 app.get('/new-post', (req, res)=>{
     res.render('new-post.ejs');
+});
+
+app.post('/submit', (req, res)=>{
+    userPost.push({
+        postName: req.body.postName,
+        imgURL: req.body.imgURL,
+        postContent: req.body.postName
+    });
+    
+    res.redirect('/');
 });
 
 
