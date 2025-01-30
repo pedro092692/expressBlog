@@ -15,6 +15,14 @@ app.get('/', (req, res)=>{
     res.render('index.ejs', {userPost:userPost});
 });
 
+app.get('/contact', (req, res)=>{
+    res.render('contact.ejs');
+});
+
+app.get('/new-post', (req, res)=>{
+    res.render('new-post.ejs');
+});
+
 
 //start sever
 app.listen(port, ()=>{
