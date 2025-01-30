@@ -36,6 +36,9 @@ app.post('/submit', (req, res)=>{
 app.get('/post/:id', (req, res)=>{
     var postId = req.params.id;
     var post = userPost[postId]
+    if(!post){
+       res.redirect('/')
+    }
     res.render('post.ejs', post );
 });
 
