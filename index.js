@@ -12,7 +12,6 @@ app.use(express.static('public'));
 
 //app routes 
 app.get('/', (req, res)=>{
-    console.log(userPost);
     res.render('index.ejs', {userPost:userPost});
 });
 
@@ -32,6 +31,12 @@ app.post('/submit', (req, res)=>{
     });
     
     res.redirect('/');
+});
+
+app.get('/post/:id', (req, res)=>{
+    var postId = req.params.id;
+    var post = userPost[postId]
+    res.render('post.ejs', post );
 });
 
 
