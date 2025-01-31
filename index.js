@@ -31,7 +31,7 @@ app.post('/submit', (req, res)=>{
     userPost.push({
         postName: req.body.postName,
         imgURL: req.body.imgURL,
-        postContent: req.body.postName
+        postContent: req.body.postContent
     });
     
     res.redirect('/');
@@ -60,9 +60,14 @@ app.post('/update/:id', (req, res)=>{
     res.redirect('/');
 });
 
+app.post('/delete/:id', (req, res)=>{
+    //delete post 
+    userPost.splice(req.params.id, 1);
+    res.redirect('/');
+});
+
 //redirect notfound
 function notFoundRedirect(res, id){
-    console.log('hi pedro' + id);
     var post = userPost[id]
     if(!post){
        res.redirect('/');

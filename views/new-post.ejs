@@ -20,10 +20,15 @@
         </div>
         <div class="form-group py-1">
         <label for="exampleFormControlTextarea1">Post Content</label>
-        <textarea class="form-control" name="postContent" id="exampleFormControlTextarea1" rows="3"><% if(locals.postContent){ %><%= postContent %>"<% } %></textarea>
+        <textarea class="form-control" name="postContent" id="exampleFormControlTextarea1" rows="3"><% if(locals.postContent){ %><%= postContent %><% } %></textarea>
         </div>
         <input type="submit" value="Save" class="form-control bg-primary">
     </form>
+    <% if(locals.postContent){ %>
+        <form action="/delete/<%= id %>" class="form-control" method="POST">
+            <input type="submit" value="Delete this post" class="btn btn-danger">
+        </form>
+    <% } %>
 </div>
 
 <%- include('partials/footer.ejs') %>
