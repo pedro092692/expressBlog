@@ -1,18 +1,26 @@
 <%- include('partials/header.ejs') %>
 <h1 class="text-center">Crete New post</h1>
 <div class="container">
-    <form action="/submit" method="POST">
+    <form action="<% if(locals.postName){%>/update/<%=id%>%>  <%}else{%>/submit <%}%>" method="POST">
         <div class="form-group py-1">
         <label for="exampleFormControlInput1">Post name</label>
-        <input type="text" name="postName" class="form-control" id="exampleFormControlInput1" placeholder="Post name">
+        <input type="text" name="postName" class="form-control" id="exampleFormControlInput1" placeholder="Post name"
+         <% if(locals.postName){ %>
+            value="<%= postName %>"
+         <% } %>
+        >
         </div>
         <div class="form-group py-1">
         <label for="exampleFormControlInput1">Image Url</label>
-        <input type="text" name="imgURL" class="form-control" id="exampleFormControlInput1" placeholder="Image url">
+        <input type="text" name="imgURL" class="form-control" id="exampleFormControlInput1" placeholder="Image url"
+        <% if(locals.imgURL){ %>
+            value="<%= imgURL %>"
+         <% } %>
+        >
         </div>
         <div class="form-group py-1">
         <label for="exampleFormControlTextarea1">Post Content</label>
-        <textarea class="form-control" name="postContent" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control" name="postContent" id="exampleFormControlTextarea1" rows="3"><% if(locals.postContent){ %><%= postContent %>"<% } %></textarea>
         </div>
         <input type="submit" value="Save" class="form-control bg-primary">
     </form>
