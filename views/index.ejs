@@ -1,7 +1,7 @@
 <%- include('partials/header.ejs') %>
 
-<div class="px-4 py-5 my-5 text-center">
-    <img src="/img/logo.svg" alt="app logo" height="48">
+<!-- <div class="px-4 py-5 my-5 text-center">
+    
     <h1 class="display-5 fw-bold text-body-emphasis">Welcome to Express Blog</h1>
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4">A place where you can create your post about your favorites topic using the power of javascript node and express Js.</p>
@@ -10,7 +10,18 @@
         <a href="/contact"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Contact</button></a>
       </div>
     </div>
-</div>
+</div> -->
+<section class="jumbotron text-center">
+  <div class="container">
+    <img src="/img/logo.svg" alt="app logo" height="48">
+    <h1 class="jumbotron-heading">Welcome to Express Blog</h1>
+    <p class="lead text-muted">A place where you can create your post about your favorites topic using the power of javascript node and express Js.</p>
+    <p>
+      <a href="/new-post" class="btn btn-primary my-2">Create New Post</a>
+      <a href="/contact" class="btn btn-secondary my-2">Contact</a>
+    </p>
+  </div>
+</section>
 <% if(userPost.length < 1){ %>
     <div class="px-4 py-5 my-5 text-center">
         <h1>No post to show Here Pleseacre create new one 😔.</h1>
