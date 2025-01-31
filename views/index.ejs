@@ -1,16 +1,5 @@
 <%- include('partials/header.ejs') %>
-
-<!-- <div class="px-4 py-5 my-5 text-center">
-    
-    <h1 class="display-5 fw-bold text-body-emphasis">Welcome to Express Blog</h1>
-    <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">A place where you can create your post about your favorites topic using the power of javascript node and express Js.</p>
-      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <a href="/new-post"><button type="button" class="btn btn-primary btn-lg px-4 gap-3">Create New Post</button></a>
-        <a href="/contact"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Contact</button></a>
-      </div>
-    </div>
-</div> -->
+<!-- jumbotron -->
 <section class="jumbotron text-center">
   <div class="container">
     <img src="/img/logo.svg" alt="app logo" height="48">
@@ -22,18 +11,21 @@
     </p>
   </div>
 </section>
+<!-- end jumbotron -->
+
+<!-- main section -->
 <% if(userPost.length < 1){ %>
     <div class="px-4 py-5 my-5 text-center">
         <h1>No post to show Here Pleseacre create new one 😔.</h1>
     </div>
 <% }else{  %>
-  <div class="px-4 row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+  <div class="container">
+    <div class="row">
     <% userPost.forEach((post, i)=>{%>
-      <div class="col">
-        <div class="card shadow-sm">
-          <img src="<%= post.imgURL %>" alt="post img">
+      <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top" src="<%= post.imgURL %>" alt="post img" height="200">
           <div class="card-body">
-            <h2><%= post.postName.slice(0, 61) %></h2>
             <p class="card-text"><%= post.postContent.slice(0, 121) %></p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
@@ -49,8 +41,9 @@
         </div>
       </div>
     <% } )%>
+      </div>
     </div>
 <% } %>
-
+<!-- end main section -->
 
 <%- include('partials/footer.ejs') %>
